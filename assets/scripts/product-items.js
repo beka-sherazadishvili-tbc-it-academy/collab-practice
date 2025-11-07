@@ -14,6 +14,9 @@ productList.addEventListener("click", (e) => {
       name: productName,
       price: parseFloat(productPrice.substring(1)),
       quantity: 1,
+      get totalPrice () {
+        return this.quantity * this.price;
+      },
     });
   }
 
