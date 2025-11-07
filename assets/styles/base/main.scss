@@ -1,0 +1,188 @@
+@use "../components/header";
+@use "../layout/hero";
+
+// 🎨 Variables for colors and spacing
+$primary-color: #0056b3;
+$accent-color: #007bff;
+$success-color: #28a745;
+$danger-color: #dc3545;
+$neutral-color: #6c757d;
+
+$bg-light: #f4f7f6;
+$bg-white: #ffffff;
+$border-light: #eee;
+$border-medium: #ddd;
+
+// Mixin for standard button styles
+@mixin standard-btn($bg-color) {
+  padding: 15px;
+  border: 1px solid darken($bg-color, 10%);
+  border-radius: 8px;
+  background-color: $bg-color;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  }
+}
+
+// Global Styles
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  background-color: $bg-light;
+  margin: 0;
+  padding: 20px;
+  color: #333;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+  color: $primary-color;
+}
+
+h2 {
+  border-bottom: 2px solid $border-light;
+  padding-bottom: 10px;
+  margin-top: 0;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid $border-light;
+  margin: 20px 0;
+}
+
+// 📦 Layout Container
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  // Shared styles for sections
+  .product-section,
+  .cart-section {
+    background: $bg-white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    min-width: 280px;
+  }
+
+  .product-section {
+    flex: 3;
+  }
+
+  .cart-section {
+    flex: 2;
+    position: sticky;
+    top: 20px;
+
+    .total-display {
+      text-align: right;
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin: 10px 0;
+    }
+
+    #empty-cart-btn {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      @include standard-btn($neutral-color);
+      color: white;
+      border: none;
+      margin-top: 15px;
+
+      &:hover {
+        background-color: darken($neutral-color, 8%);
+      }
+    }
+  }
+}
+
+// 🛒 Product List Styles
+#product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 15px;
+
+  .product-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    @include standard-btn(#fafafa); // Use mixin for base styles
+
+    &:hover {
+      border-color: $accent-color;
+      background-color: lighten($accent-color, 45%); // e6f2ff
+    }
+
+    .product-name {
+      font-weight: 600;
+    }
+
+    .product-price {
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 5px;
+    }
+  }
+}
+
+// 🛍️ Cart List Styles
+#cart-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 400px;
+  overflow-y: auto;
+
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 5px;
+    border-bottom: 1px solid $border-light;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    .item-name {
+      flex: 1;
+      font-weight: 500;
+    }
+
+    .item-price {
+      flex-basis: 60px;
+      text-align: right;
+      color: $success-color;
+      font-weight: 600;
+    }
+
+    .remove-btn {
+      flex-basis: 70px;
+      margin-left: 10px;
+      padding: 5px 8px;
+      font-size: 0.8rem;
+      color: white;
+      background-color: $danger-color;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+
+      &:hover {
+        background-color: darken($danger-color, 8%);
+      }
+    }
+  }
+}
