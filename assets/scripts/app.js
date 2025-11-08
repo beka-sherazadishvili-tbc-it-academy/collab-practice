@@ -13,17 +13,28 @@ function showItems() {
 
         newItem.innerHTML = `<span class="item-name">${item.name} (x${
         item.quantity
-        })</span><span class="item-price">$${(item.totalPrice)
-            .toFixed(2)}</span><button class="remove-btn">Remove</button>`;
+        })</span><span class="item-price">$${(
+        item.price * item.quantity
+        ).toFixed(2)}</span><button class="remove-btn">Remove</button>`;
         cartList.appendChild(newItem);
     });
 }
 
 function itemExists(name) {
-    return cartItems.find(item => item.name === name);
+  for (const item of cartItems) {
+    if(item.name === name){
+        return item;
+    }
+  }
+  return false;
 }
 
 function totalAmount() {
-    totalDisplay.innerText = cartItems.reduce((acc, curr) => 
-        acc + curr.totalPrice, 0).toFixed(2);
+    let totalAmount = 0;
+
+    for(const item of cartItems) {
+        totalAmount += item.price * item.quantity;
+    }
+
+    totalDisplay.innerText = totalAmount.toFixed(2);
 }

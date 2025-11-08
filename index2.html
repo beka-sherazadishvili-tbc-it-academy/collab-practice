@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Product Search Filter</title>
+<style>
+    * {
+
+  box-sizing: border-box;
+
+  margin: 0;
+
+  padding: 0;
+
+  font-family: "Inter", sans-serif;
+
+}
+ 
+body {
+
+  background: #f9fafb;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: flex-start;
+
+  min-height: 100vh;
+
+  padding: 40px 16px;
+
+}
+ 
+.wrapper {
+
+  width: min(1200px, 100%);
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 32px;
+
+}
+ 
+.title {
+
+  font-size: 32px;
+
+  font-weight: 700;
+
+  color: #111827;
+
+}
+ 
+.search-box {
+
+  width: 100%;
+
+  max-width: 600px;
+
+}
+ 
+#search-input {
+
+  width: 100%;
+
+  padding: 12px 16px;
+
+  font-size: 16px;
+
+  border: 2px solid #d1d5db;
+
+  border-radius: 8px;
+
+  outline: none;
+
+  transition: border-color 0.2s ease;
+
+}
+ 
+#search-input:focus {
+
+  border-color: #6366f1;
+
+}
+ 
+.product-list {
+
+  display: grid;
+
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+
+  gap: 24px;
+
+  width: 100%;
+
+}
+ 
+.product-card {
+
+  background: #fff;
+
+  border-radius: 12px;
+
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+
+  text-align: center;
+
+  padding: 16px;
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+}
+ 
+.product-card:hover {
+
+  transform: translateY(-4px);
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+}
+ 
+.product-card img {
+
+  width: 100%;
+
+  height: 180px;
+
+  object-fit: cover;
+
+  border-radius: 8px;
+
+}
+ 
+.product-card h2 {
+
+  font-size: 18px;
+
+  color: #1f2937;
+
+  margin: 12px 0 6px;
+
+}
+ 
+.product-card p {
+
+  font-weight: 600;
+
+  color: #6366f1;
+
+}
+
+ 
+</style>
+</head>
+<body>
+<main class="wrapper">
+<h1 class="title">🛍️ Product Search</h1>
+ 
+    <div class="search-box">
+<input type="text" id="search-input" placeholder="Search product..." />
+</div>
+ 
+    <div class="product-list" id="product-list">
+<div class="product-card">
+<img src="https://images.unsplash.com/photo-1606813902963-0c5b5d9c4f03?w=800" alt="Headphones">
+<h2>Wireless Headphones</h2>
+<p>$59.99</p>
+</div>
+ 
+      <div class="product-card">
+<img src="https://images.unsplash.com/photo-1616627985127-d8eec52b62b3?w=800" alt="Smartwatch">
+<h2>Smartwatch Pro</h2>
+<p>$120.00</p>
+</div>
+ 
+      <div class="product-card">
+<img src="https://images.unsplash.com/photo-1585386959984-a41552231693?w=800" alt="Bluetooth Speaker">
+<h2>Bluetooth Speaker</h2>
+<p>$45.00</p>
+</div>
+ 
+      <div class="product-card">
+<img src="https://images.unsplash.com/photo-1581291519195-ef11498d1cf5?w=800" alt="Gaming Mouse">
+<h2>Gaming Mouse</h2>
+<p>$39.99</p>
+</div>
+ 
+      <div class="product-card">
+<img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=800" alt="Laptop">
+<h2>Ultra Laptop</h2>
+<p>$899.00</p>
+</div>
+ 
+      <div class="product-card">
+<img src="https://images.unsplash.com/photo-1512499617640-c2f999098aa4?w=800" alt="Mechanical Keyboard">
+<h2>Mechanical Keyboard</h2>
+<p>$99.99</p>
+</div>
+ 
+      <div class="product-card">
+<img src="https://images.unsplash.com/photo-1606813725243-5d6b79de9cfa?w=800" alt="Monitor">
+<h2>HD Monitor</h2>
+<p>$210.00</p>
+</div>
+ 
+      <div class="product-card">
+<img src="https://images.unsplash.com/photo-1621275966303-b65cbd7b4d85?w=800" alt="Camera">
+<h2>Digital Camera</h2>
+<p>$499.00</p>
+</div>
+ 
+      <div class="product-card">
+<img src="https://images.unsplash.com/photo-1580894908361-967195033215?w=800" alt="Smartphone">
+<h2>Smartphone X</h2>
+<p>$799.00</p>
+</div>
+ 
+      <div class="product-card">
+<img src="https://images.unsplash.com/photo-1621793195947-dc63b1c0d07a?w=800" alt="Tablet">
+<h2>Tablet Mini</h2>
+<p>$299.00</p>
+</div>
+ 
+      <!-- შეგიძლია დანარჩენი 10 პროდუქტი გაამრავლო იგივე სტრუქტურით -->
+</div>
+
+<script src="./assets/scripts/practice-2/search/sort.js" ></script>
+</main>
+</body>
+</html>
+
+ 

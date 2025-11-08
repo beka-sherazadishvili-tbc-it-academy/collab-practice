@@ -1,0 +1,29 @@
+.snake__main {
+  max-width: 808px;
+  min-height: 808px;
+  border: 4px solid #121212;
+  background-color: lightgreen;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(40, 1fr);
+  //   grid-template-rows: repeat(40, 1fr);
+
+  .active {
+    width: 20px;
+    height: 20px;
+    background-color: black;
+    border-radius: 4px;
+  }
+
+  .inactive {
+    width: 20px;
+    height: 20px;
+  }
+
+  .red {
+    background-image: url(../../images/apple.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+}
